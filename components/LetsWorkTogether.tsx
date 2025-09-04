@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Mail, Phone, MapPin, Send, Github, Linkedin, CheckCircle, Coffee, ExternalLink, Calendar, Clock, Zap, Star } from 'lucide-react'
 
 const LetsWorkTogether = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '', budget: '' })
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
@@ -50,24 +50,25 @@ const LetsWorkTogether = () => {
     
     setTimeout(() => {
       setIsSubmitted(false)
-      setFormData({ name: '', email: '', message: '', budget: '' })
+      setFormData({ name: '', email: '', message: '' })
     }, 5000)
   }
 
   return (
-    <section id="contact" className="py-10 relative overflow-hidden">
-      {/* Simplified Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+    <section id="contact" className="py-16 relative overflow-hidden">
+      {/* Enhanced Purple-themed Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-950 via-indigo-950 to-violet-950"></div>
       
-      {/* Reduced floating elements */}
-      <div className="absolute top-8 left-4 w-16 h-16 bg-blue-500/6 rounded-xl blur-xl animate-pulse"></div>
-      <div className="absolute top-16 right-8 w-12 h-12 bg-purple-500/8 rounded-full blur-lg animate-pulse" style={{animationDelay: '1s'}}></div>
-      <div className="absolute bottom-12 left-1/4 w-20 h-20 bg-cyan-500/5 rounded-2xl blur-xl animate-pulse" style={{animationDelay: '2s'}}></div>
-      <div className="absolute bottom-8 right-1/3 w-14 h-14 bg-green-500/7 rounded-xl blur-lg animate-pulse" style={{animationDelay: '0.5s'}}></div>
+      {/* Purple-themed floating elements */}
+      <div className="absolute top-8 left-4 w-20 h-20 bg-purple-500/10 rounded-xl blur-xl animate-pulse"></div>
+      <div className="absolute top-16 right-8 w-16 h-16 bg-violet-500/12 rounded-full blur-lg animate-pulse" style={{animationDelay: '1s'}}></div>
+      <div className="absolute bottom-12 left-1/4 w-24 h-24 bg-indigo-500/8 rounded-2xl blur-xl animate-pulse" style={{animationDelay: '2s'}}></div>
+      <div className="absolute bottom-8 right-1/3 w-18 h-18 bg-purple-400/10 rounded-xl blur-lg animate-pulse" style={{animationDelay: '0.5s'}}></div>
       
-      {/* Simplified gradient orbs */}
-      <div className="absolute top-0 left-0 w-48 h-48 bg-gradient-to-r from-blue-500/8 to-cyan-500/8 rounded-full blur-2xl animate-pulse" style={{animationDuration: '4s'}}></div>
-      <div className="absolute bottom-0 right-0 w-48 h-48 bg-gradient-to-r from-purple-500/8 to-pink-500/8 rounded-full blur-2xl animate-pulse" style={{animationDuration: '6s', animationDelay: '2s'}}></div>
+      {/* Enhanced purple gradient orbs */}
+      <div className="absolute top-0 left-0 w-80 h-80 bg-gradient-to-r from-purple-500/12 to-indigo-500/12 rounded-full blur-3xl animate-pulse" style={{animationDuration: '4s'}}></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-r from-violet-500/12 to-purple-500/12 rounded-full blur-3xl animate-pulse" style={{animationDuration: '6s', animationDelay: '2s'}}></div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-indigo-500/8 to-violet-500/8 rounded-full blur-3xl animate-pulse" style={{animationDuration: '8s', animationDelay: '1s'}}></div>
       
       <div className="max-w-5xl mx-auto px-3 relative z-10">
         {/* Compact Header */}
@@ -273,23 +274,6 @@ const LetsWorkTogether = () => {
                     </div>
                   </div>
 
-                  <div className="space-y-1">
-                    <label htmlFor="contact-budget" className="block text-white font-bold text-xs uppercase tracking-wide">Project Budget</label>
-                    <select
-                      id="contact-budget"
-                      value={formData.budget}
-                      onChange={(e) => setFormData(prev => ({ ...prev, budget: e.target.value }))}
-                      className="w-full px-3 py-2 bg-white/5 backdrop-blur-lg border border-white/20 rounded-lg text-white focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 transition-all duration-300 hover:bg-white/10 text-sm"
-                      aria-label="Select project budget range"
-                    >
-                      <option value="" className="bg-gray-800">Select budget range (optional)</option>
-                      <option value="<5k" className="bg-gray-800">Under $5,000</option>
-                      <option value="5k-15k" className="bg-gray-800">$5,000 - $15,000</option>
-                      <option value="15k-30k" className="bg-gray-800">$15,000 - $30,000</option>
-                      <option value=">30k" className="bg-gray-800">$30,000+</option>
-                      <option value="discuss" className="bg-gray-800">Let's discuss</option>
-                    </select>
-                  </div>
 
                   <div className="space-y-1">
                     <label htmlFor="contact-message" className="block text-white font-bold text-xs uppercase tracking-wide">Message *</label>

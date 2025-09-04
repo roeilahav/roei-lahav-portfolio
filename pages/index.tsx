@@ -67,130 +67,241 @@ const ModernPortfolio = () => {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 relative overflow-hidden">
-      {/* Animated background elements */}
+    <div className="min-h-screen bg-gradient-to-br from-purple-950 via-indigo-950 to-violet-950 relative overflow-hidden">
+      {/* Enhanced purple background elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-2000"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-pulse"></div>
+        <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-violet-500 rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-pulse delay-1000"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-pulse delay-2000"></div>
+        <div className="absolute top-1/2 right-1/3 w-80 h-80 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-12 animate-pulse delay-3000"></div>
       </div>
 
-      {/* Side Navigation */}
-      <nav className="fixed left-6 top-1/2 transform -translate-y-1/2 z-50 hidden lg:block">
-        <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4 shadow-2xl">
-          <div className="flex flex-col space-y-4">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                  activeSection === item.id 
-                    ? 'text-blue-300 bg-white/30 scale-110' 
-                    : 'text-white/60 hover:text-white hover:bg-white/20 hover:scale-105'
-                }`}
-                title={item.label}
-              >
-                {item.icon}
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile Navigation */}
-      <nav className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 lg:hidden">
-        <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl px-6 py-4 shadow-2xl">
-          <div className="flex items-center space-x-6">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`w-10 h-10 rounded-lg flex items-center justify-center text-sm font-medium transition-all duration-300 ${
-                  activeSection === item.id 
-                    ? 'text-blue-300 bg-white/20' 
-                    : 'text-white/80 hover:text-white hover:bg-white/10'
-                }`}
-              >
-                {item.icon}
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex items-center justify-center relative">
-        <div className="max-w-5xl mx-auto px-3 py-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
-            {/* Hero Content - Bento Style */}
-            <div className="lg:col-span-7 space-y-3">
-              {/* Status Card - Glassmorphic */}
-              <div className="inline-flex items-center px-2 py-1 bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg text-white">
-                <div className="w-1 h-1 bg-green-400 rounded-full mr-1 animate-pulse"></div>
-                <span className="text-xs font-medium tracking-wide">Available for hire</span>
-                <Shield size={12} className="ml-1 text-blue-300" />
+      {/* Compact Side Navigation */}
+      <nav className="fixed left-4 top-1/2 transform -translate-y-1/2 z-50 hidden lg:block">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-3 shadow-xl hover:shadow-purple-500/20 transition-all duration-500">
+          <div className="flex flex-col space-y-3">
+            {navItems.map((item, index) => (
+              <div key={item.id} className="relative group">
+                <button
+                  onClick={() => scrollToSection(item.id)}
+                  className={`relative w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 transform-gpu ${
+                    activeSection === item.id 
+                      ? 'text-white bg-gradient-to-r from-purple-500 to-blue-500 scale-105 shadow-md shadow-purple-500/30' 
+                      : 'text-white/60 hover:text-white hover:bg-white/20 hover:scale-105'
+                  }`}
+                  title={item.label}
+                >
+                  <div className={`transition-all duration-300 ${
+                    activeSection === item.id ? 'scale-110' : 'group-hover:scale-110'
+                  }`}>
+                    {item.icon}
+                  </div>
+                </button>
+                
+                {/* Compact tooltip */}
+                <div className="absolute left-full ml-3 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+                  <div className="bg-gray-900/90 backdrop-blur-lg text-white px-2 py-1 rounded-md text-xs font-medium whitespace-nowrap border border-white/10 shadow-lg">
+                    {item.label}
+                    <div className="absolute right-full top-1/2 transform -translate-y-1/2 border-3 border-transparent border-r-gray-900/90"></div>
+                  </div>
+                </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </nav>
 
-              {/* Main Title */}
-              <div className="space-y-2">
-                <h1 className="text-3xl lg:text-5xl font-black text-white leading-none tracking-tight">
-                  ROEI
-                  <br />
-                  <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                    LAHAV
-                  </span>
-                </h1>
+      {/* Enhanced Mobile Navigation */}
+      <nav className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 lg:hidden">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl px-8 py-6 shadow-2xl hover:shadow-purple-500/20 transition-all duration-500">
+          <div className="flex items-center space-x-8">
+            {navItems.map((item, index) => (
+              <div key={item.id} className="relative group">
+                <button
+                  onClick={() => scrollToSection(item.id)}
+                  className={`relative w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500 transform-gpu ${
+                    activeSection === item.id 
+                      ? 'text-white bg-gradient-to-r from-purple-500 to-blue-500 scale-110 shadow-lg shadow-purple-500/30' 
+                      : 'text-white/70 hover:text-white hover:bg-white/20 hover:scale-105'
+                  }`}
+                >
+                  <div className={`transition-all duration-300 ${
+                    activeSection === item.id ? 'scale-110' : 'group-hover:scale-110'
+                  }`}>
+                    {item.icon}
+                  </div>
+                  {activeSection === item.id && (
+                    <div className="absolute inset-0 rounded-2xl bg-white/10 animate-pulse"></div>
+                  )}
+                </button>
 
-                <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg p-3">
-                  <h2 className="text-base lg:text-lg text-white font-light">
-                    Full-Stack / Backend Software Engineer
-                  </h2>
+                {/* Active indicator */}
+                {activeSection === item.id && (
+                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-6 h-1 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full animate-pulse"></div>
+                )}
+
+                {/* Mobile tooltip */}
+                <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+                  <div className="bg-gray-900/90 backdrop-blur-lg text-white px-3 py-1 rounded-lg text-xs font-medium whitespace-nowrap border border-white/10 shadow-xl">
+                    {item.label}
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-900/90"></div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Mobile progress indicator */}
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10 rounded-b-3xl overflow-hidden">
+            <div 
+              className="h-full bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-500 rounded-b-3xl"
+              style={{
+                width: `${((navItems.findIndex(item => item.id === activeSection) + 1) / navItems.length) * 100}%`
+              }}
+            ></div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section - Enhanced */}
+      <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        {/* Animated grid background */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)`,
+            backgroundSize: '50px 50px'
+          }}></div>
+        </div>
+
+        <div className="max-w-6xl mx-auto px-6 py-12 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Enhanced Hero Content */}
+            <div className="lg:col-span-7 space-y-6">
+              {/* Premium Status Badge */}
+              <div className="group animate-fade-in-up">
+                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-xl border border-green-400/30 rounded-full text-white shadow-lg hover:shadow-green-500/20 transition-all duration-300 hover:scale-105">
+                  <div className="relative mr-3">
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    <div className="absolute inset-0 w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
+                  </div>
+                  <span className="text-sm font-semibold tracking-wide">Available for New Projects</span>
+                  <Shield size={16} className="ml-2 text-green-300 group-hover:rotate-12 transition-transform" />
                 </div>
               </div>
 
-              {/* Quick Actions */}
-              <div className="flex flex-col sm:flex-row gap-2">
+              {/* Enhanced Main Title */}
+              <div className="space-y-4 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+                <div className="relative">
+                  <h1 className="text-4xl lg:text-7xl font-black leading-none tracking-tighter">
+                    <span className="block text-white hover:scale-105 transition-transform duration-500 cursor-default">
+                      ROEI
+                    </span>
+                    <span className="block bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent hover:from-cyan-400 hover:via-purple-400 hover:to-pink-400 transition-all duration-700 cursor-default">
+                      LAHAV
+                    </span>
+                  </h1>
+                  {/* Subtle decorative elements */}
+                  <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full opacity-60 animate-float"></div>
+                  <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full opacity-40 animate-float" style={{animationDelay: '1s'}}></div>
+                </div>
+
+                {/* Enhanced Role Card */}
+                <div className="relative group">
+                  <div className="bg-gradient-to-r from-white/10 via-white/15 to-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 hover:border-white/40 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10">
+                    <div className="flex items-center space-x-4">
+                      <div className="relative">
+                        <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center group-hover:rotate-6 transition-transform duration-300">
+                          <Terminal size={24} className="text-white" />
+                        </div>
+                        <div className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 rounded-full flex items-center justify-center animate-bounce">
+                          <Star size={8} className="text-white" fill="currentColor" />
+                        </div>
+                      </div>
+                      <div>
+                        <h2 className="text-xl lg:text-2xl font-bold text-white mb-1">
+                          Full-Stack Software Engineer
+                        </h2>
+                        <p className="text-purple-200 font-medium">
+                          Backend Focus • Real-time Systems • Military-grade Security
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Enhanced Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
                 <button
                   onClick={() => scrollToSection('projects')}
-                  className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                  className="group relative overflow-hidden bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 text-white font-bold px-8 py-4 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30 transform-gpu"
                 >
-                  <div className="relative z-10 flex items-center justify-center">
-                    <Eye size={14} className="mr-1" />
-                    <span className="text-sm">View Projects</span>
-                    <ArrowRight size={14} className="ml-1 group-hover:translate-x-1 transition-transform" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10 flex items-center justify-center space-x-2">
+                    <Eye size={20} className="group-hover:scale-110 transition-transform" />
+                    <span className="text-lg">View My Work</span>
+                    <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-10 transition-opacity rounded-2xl"></div>
                 </button>
                 
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="bg-white/10 backdrop-blur-lg border border-white/20 text-white font-semibold px-4 py-2 rounded-lg hover:bg-white/20 transition-all duration-300 text-sm"
+                  className="group bg-white/10 backdrop-blur-xl border-2 border-white/20 text-white font-bold px-8 py-4 rounded-2xl hover:bg-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105 hover:shadow-xl"
                 >
-                  Get In Touch
+                  <div className="flex items-center justify-center space-x-2">
+                    <Mail size={20} className="group-hover:rotate-12 transition-transform" />
+                    <span className="text-lg">Get In Touch</span>
+                  </div>
                 </button>
+              </div>
+
+              {/* Social Proof Indicators */}
+              <div className="flex items-center space-x-6 animate-fade-in-up" style={{animationDelay: '0.6s'}}>
+                <div className="flex items-center space-x-2 text-gray-300">
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <span className="text-sm font-medium">1+ Years Experience</span>
+                </div>
+                <div className="flex items-center space-x-2 text-gray-300">
+                  <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                  <span className="text-sm font-medium">Military-grade Security</span>
+                </div>
               </div>
             </div>
 
-            {/* Profile Image - 3D Style */}
-            <div className="lg:col-span-5 flex justify-center">
+            {/* Enhanced Profile Section */}
+            <div className="lg:col-span-5 flex justify-center animate-fade-in-up" style={{animationDelay: '0.3s'}}>
               <div className="relative group">
-                <div 
-                  className="w-48 h-48 rounded-xl overflow-hidden shadow-lg transition-transform duration-500 group-hover:scale-105"
-                  style={{
-                    transform: isClient ? `perspective(1000px) rotateY(${(mousePosition.x - (typeof window !== 'undefined' ? window.innerWidth : 0) / 2) * 0.01}deg) rotateX(${-(mousePosition.y - (typeof window !== 'undefined' ? window.innerHeight : 0) / 2) * 0.01}deg)` : 'none'
-                  }}
-                >
-                  <img 
-                    src="/roei.png"
-                    alt="Roei Lahav - Full Stack Software Engineer"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                {/* Animated ring */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 opacity-20 animate-spin-slow"></div>
+                <div className="absolute inset-2 rounded-3xl bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 opacity-30 animate-spin-slow-reverse"></div>
+                
+                {/* Main image container */}
+                <div className="relative z-10 p-2">
+                  <div 
+                    className="w-64 h-64 lg:w-80 lg:h-80 rounded-3xl overflow-hidden shadow-2xl transition-all duration-700 group-hover:scale-105 group-hover:shadow-purple-500/30"
+                    style={{
+                      transform: isClient ? `perspective(1000px) rotateY(${(mousePosition.x - (typeof window !== 'undefined' ? window.innerWidth : 0) / 2) * 0.02}deg) rotateX(${-(mousePosition.y - (typeof window !== 'undefined' ? window.innerHeight : 0) / 2) * 0.02}deg)` : 'none'
+                    }}
+                  >
+                    <img 
+                      src="/roei.png"
+                      alt="Roei Lahav - Full Stack Software Engineer"
+                      className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent group-hover:from-purple-900/20 transition-all duration-500"></div>
+                  </div>
                 </div>
                 
-                {/* Floating elements */}
-                <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-500/80 backdrop-blur-lg rounded-md flex items-center justify-center shadow-lg border border-white/20">
-                  <Code size={16} className="text-white" />
+                {/* Enhanced floating elements */}
+                <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-xl border-2 border-white/20 backdrop-blur-lg group-hover:rotate-12 transition-all duration-300 animate-float">
+                  <Code size={24} className="text-white" />
+                </div>
+                <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-xl border-2 border-white/20 backdrop-blur-lg group-hover:-rotate-12 transition-all duration-300 animate-float" style={{animationDelay: '0.5s'}}>
+                  <Terminal size={16} className="text-white" />
+                </div>
+                <div className="absolute top-1/2 -right-6 w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+                  <div className="w-2 h-2 bg-white rounded-full"></div>
                 </div>
               </div>
             </div>
@@ -210,45 +321,45 @@ const ModernPortfolio = () => {
       {/* Let's Work Together Component */}
       <LetsWorkTogether />
 
-      {/* Footer */}
-      <footer className="py-12 relative">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8">
+      {/* Compact Footer */}
+      <footer className="py-8 relative">
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6">
             <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="mb-6 md:mb-0">
-                <h3 className="text-xl font-bold text-white">Roei Lahav</h3>
-                <p className="text-gray-300 text-sm">Full-Stack Software Engineer</p>
+              <div className="mb-4 md:mb-0">
+                <h3 className="text-lg font-bold text-white">Roei Lahav</h3>
+                <p className="text-gray-400 text-xs">Full-Stack Software Engineer</p>
               </div>
               
-              <div className="flex items-center space-x-6">
+              <div className="flex items-center space-x-4">
                 <a 
                   href="https://github.com/roeilahav" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-gray-300 hover:text-white transition-colors hover:scale-110 transform duration-300"
+                  className="text-gray-400 hover:text-white transition-colors hover:scale-105 transform duration-300"
                 >
-                  <Github size={24} />
+                  <Github size={18} />
                 </a>
                 <a 
                   href="https://www.linkedin.com/in/roeilahav/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-gray-300 hover:text-white transition-colors hover:scale-110 transform duration-300"
+                  className="text-gray-400 hover:text-white transition-colors hover:scale-105 transform duration-300"
                 >
-                  <Linkedin size={24} />
+                  <Linkedin size={18} />
                 </a>
                 <a 
                   href="mailto:roeilahaving@gmail.com" 
-                  className="text-gray-300 hover:text-white transition-colors hover:scale-110 transform duration-300"
+                  className="text-gray-400 hover:text-white transition-colors hover:scale-105 transform duration-300"
                 >
-                  <Mail size={24} />
+                  <Mail size={18} />
                 </a>
               </div>
             </div>
             
-            <div className="border-t border-white/20 mt-6 pt-6 text-center">
-              <p className="text-gray-400 text-sm">
-                &copy; 2024 Roei Lahav. Built with Next.js, TailwindCSS & Modern Design Principles
+            <div className="border-t border-white/5 mt-4 pt-3 text-center">
+              <p className="text-gray-500 text-xs font-medium">
+                &copy; 2024 Roei Lahav • Built with Next.js & TailwindCSS
               </p>
             </div>
           </div>
@@ -276,6 +387,95 @@ const ModernPortfolio = () => {
         }
         .animate-fade-in-up {
           animation: fade-in-up 0.8s ease-out forwards;
+        }
+
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+          animation: spin-slow 20s linear infinite;
+        }
+
+        @keyframes spin-slow-reverse {
+          from { transform: rotate(360deg); }
+          to { transform: rotate(0deg); }
+        }
+        .animate-spin-slow-reverse {
+          animation: spin-slow-reverse 15s linear infinite;
+        }
+
+        @keyframes gradient-shift {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        .animate-gradient {
+          background-size: 200% 200%;
+          animation: gradient-shift 3s ease infinite;
+        }
+
+        @keyframes pulse-glow {
+          0%, 100% { 
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+          }
+          50% { 
+            box-shadow: 0 0 40px rgba(168, 85, 247, 0.8);
+          }
+        }
+        .animate-pulse-glow {
+          animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        .transform-gpu {
+          transform: translateZ(0);
+          backface-visibility: hidden;
+          perspective: 1000px;
+        }
+
+        /* Smooth scroll behavior */
+        html {
+          scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+          width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+          background: rgba(0, 0, 0, 0.1);
+        }
+        ::-webkit-scrollbar-thumb {
+          background: linear-gradient(to bottom, #8b5cf6, #3b82f6);
+          border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(to bottom, #7c3aed, #2563eb);
+        }
+
+        @keyframes skillProgress {
+          from {
+            transform: translateX(-100%);
+          }
+          to {
+            transform: translateX(0);
+          }
+        }
+
+        /* Enhanced focus states */
+        *:focus {
+          outline: 2px solid rgba(168, 85, 247, 0.5);
+          outline-offset: 2px;
+        }
+
+        /* Reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+          *,
+          *::before,
+          *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+          }
         }
       `}</style>
     </div>

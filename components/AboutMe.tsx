@@ -29,19 +29,30 @@ const AboutMe = () => {
   ]
 
   return (
-    <section id="about" className="py-10 relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-purple-950/10 to-transparent"></div>
+    <section id="about" className="py-16 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-950 via-indigo-950 to-violet-950"></div>
+      
+      {/* Purple-themed floating elements */}
+      <div className="absolute top-8 left-4 w-20 h-20 bg-purple-500/10 rounded-xl blur-xl animate-pulse"></div>
+      <div className="absolute top-16 right-8 w-16 h-16 bg-violet-500/12 rounded-full blur-lg animate-pulse" style={{animationDelay: '1s'}}></div>
+      <div className="absolute bottom-12 left-1/4 w-24 h-24 bg-indigo-500/8 rounded-2xl blur-xl animate-pulse" style={{animationDelay: '2s'}}></div>
+      <div className="absolute bottom-8 right-1/3 w-18 h-18 bg-purple-400/10 rounded-xl blur-lg animate-pulse" style={{animationDelay: '0.5s'}}></div>
+      
+      {/* Enhanced purple gradient orbs */}
+      <div className="absolute top-0 left-0 w-80 h-80 bg-gradient-to-r from-purple-500/12 to-indigo-500/12 rounded-full blur-3xl animate-pulse" style={{animationDuration: '4s'}}></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-r from-violet-500/12 to-purple-500/12 rounded-full blur-3xl animate-pulse" style={{animationDuration: '6s', animationDelay: '2s'}}></div>
       
       <div className="max-w-5xl mx-auto px-3 relative">
-        <div className="text-center mb-6">
-          <div className="inline-flex items-center gap-1 px-2 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full mb-3">
-            <Brain size={12} className="text-blue-400" />
-            <span className="text-blue-400 text-xs font-medium">About Me</span>
+        <div className="text-center mb-12 animate-fade-in-up">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-400/30 rounded-full mb-6 hover:border-purple-400/50 transition-all duration-300 hover:scale-105">
+            <Brain size={16} className="text-blue-400" />
+            <span className="text-blue-200 text-sm font-semibold tracking-wide">About Me</span>
+            <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
           </div>
-          <h2 className="text-xl font-bold text-white mb-3 bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">
+          <h2 className="text-3xl lg:text-4xl font-black text-white mb-6 bg-gradient-to-r from-white via-purple-100 to-blue-100 bg-clip-text text-transparent leading-tight">
             Building Secure, Scalable Solutions
           </h2>
-          <p className="text-sm text-gray-400 max-w-xl mx-auto leading-relaxed">
+          <p className="text-base text-gray-300 max-w-2xl mx-auto leading-relaxed font-medium">
             Full-Stack Software Engineer with a backend focus and hands-on experience building secure, real-time systems for the Israeli Defense Forces. Skilled in scalable backend development with Node.js, Express, and MongoDB, and in creating responsive interfaces with React.
           </p>
         </div>

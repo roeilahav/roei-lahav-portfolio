@@ -1,4 +1,4 @@
-import { Github, ExternalLink, Shield, BarChart3, Code2, Building2, Star, Zap } from 'lucide-react'
+import { Github, ExternalLink, Shield, BarChart3, Code2, Building2, Star, Zap, Brain, Users } from 'lucide-react'
 
 interface Project {
   title: string;
@@ -23,9 +23,9 @@ const FeaturedProjects = () => {
       description: 'Military-grade slide collaboration system with real-time synchronization, role-based access control, and comprehensive version management.',
       techStack: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'JWT'],
       highlights: [
-        { text: 'Real-time sync', icon: Zap },
-        { text: 'Military security', icon: Shield },
-        { text: 'Version control', icon: Code2 }
+        { text: 'WebSocket real-time sync', icon: Zap },
+        { text: 'End-to-end encryption', icon: Shield },
+        { text: 'Git-like version control', icon: Code2 }
       ],
       type: 'Defense System',
       gradient: 'from-blue-600 via-blue-700 to-purple-800',
@@ -38,9 +38,9 @@ const FeaturedProjects = () => {
       description: 'High-performance data processing system with interactive visualizations for critical operational decision-making in defense environments.',
       techStack: ['React', 'TypeScript', 'MUI', 'Charts.js', 'MongoDB'],
       highlights: [
-        { text: 'High-volume processing', icon: BarChart3 },
-        { text: 'Interactive charts', icon: Star },
-        { text: 'Operational insights', icon: Shield }
+        { text: 'MongoDB aggregation pipeline', icon: BarChart3 },
+        { text: 'Charts.js interactive visuals', icon: Star },
+        { text: 'Role-based data access', icon: Shield }
       ],
       type: 'Intelligence Platform',
       gradient: 'from-emerald-600 via-teal-600 to-cyan-700',
@@ -48,14 +48,14 @@ const FeaturedProjects = () => {
       priority: 'high'
     },
     {
-      title: 'Gusta Restaurant',
+      title: 'Gusta Pizza',
       subtitle: 'Modern Restaurant Management System',
       description: 'Full-stack restaurant management platform with real-time ordering, inventory tracking, and customer management features.',
       techStack: ['React', 'Node.js', 'TypeScript', 'MongoDB'],
       highlights: [
-        { text: 'Real-time orders', icon: Code2 },
-        { text: 'Inventory tracking', icon: Star },
-        { text: 'Customer management', icon: Zap }
+        { text: 'Socket.io order updates', icon: Code2 },
+        { text: 'Automated stock tracking', icon: Star },
+        { text: 'Customer analytics dashboard', icon: Users }
       ],
       type: 'Web Application',
       gradient: 'from-purple-600 via-violet-600 to-pink-700',
@@ -63,16 +63,16 @@ const FeaturedProjects = () => {
       priority: 'medium'
     },
     {
-      title: 'TaskFlow Pro',
-      subtitle: 'Project Management Platform',
-      description: 'Modern task management system with real-time collaboration, analytics dashboard, and team productivity insights.',
-      techStack: ['React', 'Node.js', 'Express.js', 'PostgreSQL'],
+      title: 'Elli-Mate',
+      subtitle: 'AI-Powered Companion Chatbot for Elderly',
+      description: 'Intelligent chatbot designed to provide companionship and support for elderly users when they need assistance or conversation, powered by AI technology.',
+      techStack: ['Java', 'Android Studio', 'GEMINI API', 'Firebase'],
       highlights: [
-        { text: 'Team collaboration', icon: Building2 },
-        { text: 'Analytics dashboard', icon: Star },
-        { text: 'Real-time updates', icon: Zap }
+        { text: 'GEMINI API integration', icon: Brain },
+        { text: 'Large text & voice UI', icon: Users },
+        { text: 'Firebase emergency alerts', icon: Shield }
       ],
-      type: 'Productivity Tool',
+      type: 'Mobile App',
       gradient: 'from-orange-600 via-red-600 to-rose-700',
       status: 'completed',
       priority: 'medium'
@@ -80,29 +80,39 @@ const FeaturedProjects = () => {
   ]
 
   return (
-    <section id="projects" className="py-12 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/20 to-transparent"></div>
-      <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+    <section id="projects" className="py-16 relative overflow-hidden">
+      {/* Enhanced Purple-themed Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-950 via-indigo-950 to-violet-950"></div>
+      
+      {/* Purple-themed floating elements */}
+      <div className="absolute top-8 left-4 w-20 h-20 bg-purple-500/10 rounded-xl blur-xl animate-pulse"></div>
+      <div className="absolute top-16 right-8 w-16 h-16 bg-violet-500/12 rounded-full blur-lg animate-pulse" style={{animationDelay: '1s'}}></div>
+      <div className="absolute bottom-12 left-1/4 w-24 h-24 bg-indigo-500/8 rounded-2xl blur-xl animate-pulse" style={{animationDelay: '2s'}}></div>
+      <div className="absolute bottom-8 right-1/3 w-18 h-18 bg-purple-400/10 rounded-xl blur-lg animate-pulse" style={{animationDelay: '0.5s'}}></div>
+      
+      {/* Enhanced purple gradient orbs */}
+      <div className="absolute top-0 left-0 w-80 h-80 bg-gradient-to-r from-purple-500/12 to-indigo-500/12 rounded-full blur-3xl animate-pulse" style={{animationDuration: '4s'}}></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-r from-violet-500/12 to-purple-500/12 rounded-full blur-3xl animate-pulse" style={{animationDuration: '6s', animationDelay: '2s'}}></div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-indigo-500/8 to-violet-500/8 rounded-full blur-3xl animate-pulse" style={{animationDuration: '8s', animationDelay: '1s'}}></div>
 
       <div className="max-w-5xl mx-auto px-3 relative z-10">
-        {/* Refined Header */}
-        <div className="text-center mb-6">
-          <div className="inline-flex items-center gap-1 px-2 py-1 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 mb-2">
-            <Star className="w-2 h-2 text-blue-400" />
-            <span className="text-xs font-medium text-gray-300">Featured Work</span>
+        {/* Professional Header */}
+        <div className="text-center mb-12 animate-fade-in-up">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-400/30 rounded-full mb-6 hover:border-purple-400/50 transition-all duration-300 hover:scale-105">
+            <Star className="w-4 h-4 text-blue-400" />
+            <span className="text-sm font-semibold text-blue-200 tracking-wide">Featured Work</span>
+            <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
           </div>
-          <h2 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent mb-2">
+          <h2 className="text-3xl lg:text-4xl font-black bg-gradient-to-r from-white via-purple-100 to-blue-100 bg-clip-text text-transparent mb-6 leading-tight">
             Featured Projects
           </h2>
-          <p className="text-gray-400 max-w-md mx-auto text-xs">
-            Mission-critical defense applications
+          <p className="text-base text-gray-300 max-w-2xl mx-auto leading-relaxed font-medium">
+            Mission-critical applications built with cutting-edge technologies for defense and commercial sectors
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+        {/* Enhanced Projects Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {projects.map((project, index) => {
             const isHighPriority = project.priority === 'high';
             const isCompleted = project.status === 'completed';
@@ -110,64 +120,78 @@ const FeaturedProjects = () => {
             return (
               <article 
                 key={index}
-                className={`group relative bg-gradient-to-br from-white/8 to-white/[0.02] backdrop-blur-xl border border-white/20 rounded-xl overflow-hidden transition-all duration-500 hover:scale-[1.01] hover:border-white/40 hover:shadow-lg hover:shadow-blue-500/10 ${
-                  isHighPriority ? 'ring-1 ring-blue-400/30 shadow-md shadow-blue-500/10' : ''
+                className={`group relative bg-gradient-to-br from-white/10 via-white/15 to-white/5 backdrop-blur-xl border border-white/20 rounded-2xl overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:border-white/40 hover:shadow-lg hover:shadow-purple-500/20 transform-gpu animate-fade-in-up h-[600px] flex flex-col ${
+                  isHighPriority ? 'ring-1 ring-purple-400/30 shadow-md shadow-purple-500/20' : ''
                 }`}
+                style={{animationDelay: `${index * 0.2}s`}}
               >
 
-                {/* Status Badge */}
-                <div className="absolute top-2 right-2 z-20">
-                  <div className={`px-1.5 py-0.5 backdrop-blur-lg text-xs font-bold rounded-md border shadow-sm transition-all duration-300 group-hover:scale-105 ${
+                {/* Professional Status Badge */}
+                <div className="absolute top-4 right-4 z-20">
+                  <div className={`px-3 py-1 backdrop-blur-xl text-xs font-bold rounded-full border-2 shadow-lg transition-all duration-300 group-hover:scale-110 ${
                     isCompleted 
-                      ? 'bg-green-500/20 text-green-300 border-green-500/30 shadow-green-500/20' 
-                      : 'bg-blue-500/20 text-blue-300 border-blue-500/30 shadow-blue-500/20'
+                      ? 'bg-green-500/20 text-green-200 border-green-400/40 shadow-green-500/30' 
+                      : 'bg-blue-500/20 text-blue-200 border-blue-400/40 shadow-blue-500/30'
                   }`}>
-                    {isCompleted ? '● LIVE' : '● DEV'}
+                    <div className="flex items-center gap-2">
+                      <div className={`w-2 h-2 rounded-full animate-pulse ${
+                        isCompleted ? 'bg-green-400' : 'bg-blue-400'
+                      }`}></div>
+                      {isCompleted ? 'LIVE' : 'DEV'}
+                    </div>
                   </div>
                 </div>
 
-                {/* Project Header */}
-                <div className={`bg-gradient-to-br ${project.gradient} p-3 relative overflow-hidden group-hover:shadow-lg transition-all duration-500`}>
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-all duration-500"></div>
+                {/* Enhanced Project Header */}
+                <div className={`bg-gradient-to-br ${project.gradient} p-4 relative overflow-hidden group-hover:shadow-xl transition-all duration-500`}>
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-700"></div>
+                  
+                  {/* Premium floating elements */}
+                  <div className="absolute inset-0 overflow-hidden">
+                    <div className="absolute -top-4 -right-4 w-20 h-20 bg-white/10 rounded-full blur-2xl group-hover:scale-125 group-hover:bg-white/15 transition-all duration-1000"></div>
+                    <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-white/10 rounded-full blur-xl group-hover:scale-125 group-hover:bg-white/15 transition-all duration-1000 delay-300"></div>
+                    <div className="absolute top-4 left-4 w-1 h-1 bg-white/60 rounded-full animate-ping"></div>
+                    <div className="absolute bottom-6 right-6 w-1.5 h-1.5 bg-white/40 rounded-full animate-pulse delay-700"></div>
+                  </div>
                   
                   <div className="relative z-10">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="px-2 py-0.5 bg-black/40 backdrop-blur-md text-white text-xs font-bold rounded-full border border-white/30 shadow-lg group-hover:bg-black/50 transition-all duration-300">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="px-3 py-1 bg-black/30 backdrop-blur-md text-white text-xs font-bold rounded-full border border-white/20 shadow-xl group-hover:bg-black/40 group-hover:scale-105 transition-all duration-300">
                         {project.type}
                       </span>
+                      {isHighPriority && (
+                        <div className="flex items-center gap-1 px-2 py-1 bg-yellow-500/20 rounded-full border border-yellow-400/30">
+                          <Star size={10} className="text-yellow-300 fill-current" />
+                          <span className="text-yellow-200 text-xs font-medium">Featured</span>
+                        </div>
+                      )}
                     </div>
                     
-                    <h3 className="text-lg font-black text-white mb-1 group-hover:scale-[1.02] transition-transform duration-300 tracking-tight">
+                    <h3 className="text-xl font-bold text-white mb-1 group-hover:scale-[1.01] transition-transform duration-300 tracking-tight leading-tight">
                       {project.title}
                     </h3>
-                    <p className="text-white/95 font-semibold leading-relaxed text-xs">
+                    <p className="text-white/90 font-medium leading-relaxed text-xs">
                       {project.subtitle}
                     </p>
                   </div>
-
-                  {/* Enhanced Decorative Elements */}
-                  <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-white/15 rounded-full blur-xl group-hover:scale-125 group-hover:bg-white/20 transition-all duration-700"></div>
-                  <div className="absolute -top-3 -left-3 w-8 h-8 bg-white/15 rounded-full blur-lg group-hover:scale-125 group-hover:bg-white/20 transition-all duration-700 delay-150"></div>
-                  <div className="absolute top-1/2 right-4 w-1.5 h-1.5 bg-white/40 rounded-full animate-pulse"></div>
-                  <div className="absolute bottom-3 left-4 w-1 h-1 bg-white/30 rounded-full animate-pulse delay-500"></div>
                 </div>
 
-                {/* Project Preview */}
-                <div className="h-24 relative overflow-hidden bg-gradient-to-br from-gray-900 to-black">
-                  {project.title === 'Gusta Restaurant' ? (
+                {/* Compact Project Preview */}
+                <div className="h-32 relative overflow-hidden bg-gradient-to-br from-gray-900 to-black">
+                  {project.title === 'Gusta Pizza' ? (
                     <div className="relative h-full">
                       <img 
                         src="/gusta.png" 
-                        alt="Gusta Restaurant Application"
+                        alt="Gusta Pizza Application"
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                     </div>
-                  ) : project.title === 'TaskFlow Pro' ? (
+                  ) : project.title === 'Elli-Mate' ? (
                     <div className="relative h-full">
                       <img 
                         src="/eliimate.jpg" 
-                        alt="TaskFlow Pro Application"
+                        alt="Elli-Mate Application"
                         className="w-full h-full object-cover object-bottom"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -185,73 +209,58 @@ const FeaturedProjects = () => {
                     <div className="relative h-full">
                       <img 
                         src="/confidential.jpg" 
-                        alt="Hamatz Secure Collaboration Platform"
+                        alt="Madadim Intelligence Dashboard Platform"
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/30 via-teal-600/20 to-cyan-700/30"></div>
-                      <div className="absolute inset-0 opacity-20">
-                        <div className="flex items-center justify-center h-full">
-                          <div className="grid grid-cols-6 gap-0.5">
-                            {Array.from({length: 18}).map((_, i) => (
-                              <div key={i} className="w-0.5 bg-emerald-400 rounded-full animate-pulse" style={{
-                                height: `${Math.random() * 16 + 6}px`,
-                                animationDelay: `${i * 0.1}s`
-                              }}></div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="text-center">
-                          <div className="w-6 h-6 bg-gradient-to-br from-emerald-600 to-cyan-700 rounded-lg flex items-center justify-center mx-auto mb-1 shadow-lg border border-emerald-400/30">
-                            <BarChart3 className="w-3 h-3 text-white" />
-                          </div>
-                          <p className="text-xs font-bold text-white">Intelligence Dashboard</p>
-                          <p className="text-xs text-emerald-200 opacity-80">Analytics • Visualization • Insights</p>
-                        </div>
-                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                     </div>
                   ) : null}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                 </div>
 
-                {/* Project Content */}
-                <div className="p-3 space-y-3">
-                  <p className="text-gray-300 leading-relaxed text-xs font-medium">
+                {/* Compact Project Content */}
+                <div className="p-4 flex-1 flex flex-col">
+                  <p className="text-gray-200 leading-relaxed text-xs font-medium mb-3">
                     {project.description}
                   </p>
 
-                  {/* Enhanced Highlights */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-1.5">
-                    {project.highlights.map((highlight, idx) => {
-                      const Icon = highlight.icon;
-                      return (
-                        <div 
-                          key={idx} 
-                          className="group/highlight bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-md rounded-lg p-2 border border-white/30 hover:border-white/40 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-white/10"
-                        >
-                          <div className="flex items-center gap-1.5">
-                            <div className="w-4 h-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-md flex items-center justify-center group-hover/highlight:scale-110 transition-transform duration-300">
-                              <Icon className="w-2 h-2 text-white" />
+                  {/* Compact Key Features */}
+                  <div className="mb-4">
+                    <h4 className="text-white font-bold text-xs uppercase tracking-wider flex items-center gap-1 mb-2">
+                      <Zap className="w-3 h-3 text-purple-400" />
+                      Key Features
+                    </h4>
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.highlights.map((highlight, idx) => {
+                        const Icon = highlight.icon;
+                        return (
+                          <div 
+                            key={idx} 
+                            className="group/highlight bg-gradient-to-r from-white/8 to-white/5 backdrop-blur-md rounded-md px-2 py-1 border border-white/15 hover:border-white/30 transition-all duration-300 hover:scale-105"
+                          >
+                            <div className="flex items-center gap-1.5">
+                              <div className="w-3 h-3 bg-gradient-to-br from-purple-500 to-blue-500 rounded-sm flex items-center justify-center group-hover/highlight:scale-110 transition-all duration-300">
+                                <Icon className="w-1.5 h-1.5 text-white" />
+                              </div>
+                              <p className="text-white text-xs font-medium">{highlight.text}</p>
                             </div>
-                            <p className="text-white text-xs font-bold">{highlight.text}</p>
                           </div>
-                        </div>
-                      )
-                    })}
+                        )
+                      })}
+                    </div>
                   </div>
 
-                  {/* Enhanced Tech Stack */}
-                  <div className="space-y-1.5">
-                    <h4 className="text-white font-bold text-xs uppercase tracking-wide flex items-center gap-1">
-                      <Code2 className="w-2 h-2 text-blue-400" />
+                  {/* Compact Tech Stack */}
+                  <div className="mb-4">
+                    <h4 className="text-white font-bold text-xs uppercase tracking-wider flex items-center gap-1 mb-2">
+                      <Code2 className="w-3 h-3 text-blue-400" />
                       Tech Stack
                     </h4>
                     <div className="flex flex-wrap gap-1.5">
                       {project.techStack.map((tech) => (
                         <span
                           key={tech}
-                          className="px-2 py-0.5 bg-gradient-to-r from-white/25 to-white/15 backdrop-blur-md text-white text-xs font-bold rounded-md border border-white/40 hover:border-white/60 hover:scale-105 hover:shadow-md transition-all duration-300"
+                          className="px-2 py-1 bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-xl text-white text-xs font-semibold rounded-lg border border-white/30 hover:border-white/50 hover:scale-105 hover:shadow-md hover:from-purple-500/20 hover:to-blue-500/20 transition-all duration-300"
                         >
                           {tech}
                         </span>
@@ -259,15 +268,22 @@ const FeaturedProjects = () => {
                     </div>
                   </div>
 
-                  {/* Enhanced Project Actions */}
-                  <div className="flex gap-2 pt-2">
-                    <button className="group/btn flex-1 bg-gradient-to-r from-white/15 to-white/5 backdrop-blur-md hover:from-white/25 hover:to-white/15 text-white font-bold py-2 rounded-lg transition-all duration-300 border border-white/30 hover:border-white/50 hover:scale-105 hover:shadow-lg">
-                      <Github size={12} className="inline mr-1 group-hover/btn:rotate-12 transition-transform duration-300" />
-                      <span className="text-xs">View Code</span>
+                  {/* Spacer to push buttons to bottom */}
+                  <div className="flex-1"></div>
+                  
+                  {/* Compact Project Actions */}
+                  <div className="flex gap-3 pt-3">
+                    <button className="group/btn flex-1 bg-gradient-to-r from-white/15 to-white/10 backdrop-blur-xl hover:from-white/25 hover:to-white/20 text-white font-semibold py-2 px-3 rounded-lg transition-all duration-300 border border-white/30 hover:border-white/50 hover:scale-105 hover:shadow-md">
+                      <div className="flex items-center justify-center gap-1.5">
+                        <Github size={14} className="group-hover/btn:rotate-12 transition-transform duration-300" />
+                        <span className="text-xs">View Code</span>
+                      </div>
                     </button>
-                    <button className={`group/btn flex-1 bg-gradient-to-r ${project.gradient} hover:shadow-lg hover:shadow-blue-500/20 text-white font-bold py-2 rounded-lg transition-all duration-300 hover:scale-105 border border-white/20`}>
-                      <ExternalLink size={12} className="inline mr-1 group-hover/btn:rotate-12 transition-transform duration-300" />
-                      <span className="text-xs">Live Demo</span>
+                    <button className={`group/btn flex-1 bg-gradient-to-r ${project.gradient} hover:shadow-md hover:shadow-purple-500/30 text-white font-semibold py-2 px-3 rounded-lg transition-all duration-300 hover:scale-105 border border-white/20 hover:border-white/40`}>
+                      <div className="flex items-center justify-center gap-1.5">
+                        <ExternalLink size={14} className="group-hover/btn:rotate-12 transition-transform duration-300" />
+                        <span className="text-xs">Live Demo</span>
+                      </div>
                     </button>
                   </div>
                 </div>
@@ -275,14 +291,6 @@ const FeaturedProjects = () => {
               </article>
             )
           })}
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center mt-6">
-          <div className="inline-flex items-center gap-1 px-3 py-1.5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-md transition-all duration-300 hover:scale-105 hover:shadow-md hover:shadow-blue-500/20">
-            <ExternalLink size={12} />
-            <span className="text-sm">View All Projects</span>
-          </div>
         </div>
       </div>
     </section>
